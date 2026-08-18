@@ -45,11 +45,12 @@ pipeline {
         }
 
         stage('Docker Deploy') {
-            steps {
-                echo 'Deploying Student Attendance System...'
-                bat 'docker-compose up -d'
-            }
-        }
+    steps {
+        echo 'Deploying Student Attendance System...'
+        bat 'docker-compose down --remove-orphans'
+        bat 'docker-compose up -d'
+    }
+}
 
         stage('Health Check') {
             steps {
