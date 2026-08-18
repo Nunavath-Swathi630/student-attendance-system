@@ -40,14 +40,14 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Building Docker images...'
-                bat 'docker compose build'
+                bat 'docker-compose build'
             }
         }
 
         stage('Docker Deploy') {
             steps {
                 echo 'Deploying Student Attendance System...'
-                bat 'docker compose up -d'
+                bat 'docker-compose up -d'
             }
         }
 
